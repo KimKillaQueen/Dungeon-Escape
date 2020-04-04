@@ -46,5 +46,9 @@ public class doorScript : interactableObject
         }
     }
 
+    public void unlock() {
+        locked = false;
+    }
+
 
 }

@@ -11,6 +11,7 @@ public class Intereaction : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] public float IntereactionRadius = 3.0f;
     private List<interactableObject> allInteractables;
+    public bool hasKey = false;
     void Start()
     {
         allInteractables = new List<interactableObject>(FindObjectsOfType<interactableObject>());
@@ -37,7 +38,12 @@ public class Intereaction : MonoBehaviour
         });
 
         if(target != null) {
+            if(target.gameObject.GetComponent<doorScript>() != null && hasKey) {
+                target.gameObject.GetComponent<doorScript>().unlock();
+                hasKey = false;
+            } else {
             target.Invoke();
+            }
         } else {
             Debug.Log("No target");
         }
@@ -56,6 +62,10 @@ public class Intereaction : MonoBehaviour
         } else {
             interactableTextField.text = "";
         }
+    }
+
+    public void giveKey() {
+        hasKey = true;
     }
 
     [SerializeField]  Text interactableTextField;
