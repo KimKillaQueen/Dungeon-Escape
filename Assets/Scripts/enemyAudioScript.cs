@@ -41,7 +41,7 @@ public class enemyAudioScript : MonoBehaviour
             }
         }
         if(distance > 0) {
-            audioPlayer.volume = 0.35f / (playerPos - currentPos).magnitude;
+            audioPlayer.volume = 4.0f / (distance * distance * distance);
         }
     }
 

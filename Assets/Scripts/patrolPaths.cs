@@ -33,7 +33,7 @@ public class patrolPaths : MonoBehaviour
                 targetDestination.target = patrolPoints[currentIndex];
             }
 
-            if(isPatrolling == false && (currentTargetPos - currentPos).magnitude > 3.0f) {
+            if(isPatrolling == false && (currentTargetPos - currentPos).magnitude > 4.5f) {
                 targetDestination.target = patrolPoints[currentIndex];
             }
         // }

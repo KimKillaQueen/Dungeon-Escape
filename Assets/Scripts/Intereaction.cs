@@ -58,7 +58,11 @@ public class Intereaction : MonoBehaviour
         });
 
         if( target != null) {
+            if(target.gameObject.GetComponent<doorScript>() != null && hasKey) {
+                interactableTextField.text = "Unlock door [F]";
+            } else {
             interactableTextField.text = target.description;
+            }
         } else {
             interactableTextField.text = "";
         }

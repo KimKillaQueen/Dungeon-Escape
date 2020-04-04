@@ -14,10 +14,10 @@ public class movementScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Vector2 currentPos = transform.position;
-        Vector2 moveVec = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        playerRB.MovePosition(currentPos + moveVec * movementSpeed * Time.deltaTime);
+        Vector2 currentPos = playerRB.position;
+        Vector2 moveVec = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        playerRB.MovePosition(currentPos + moveVec * movementSpeed * Time.fixedDeltaTime);
     }
 }
